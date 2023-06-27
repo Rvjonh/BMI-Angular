@@ -1,0 +1,61 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+
+    <div class="col-lg-6 offset-lg">
+        <h2 class="text-center mt-2 tex-white my-title">BMI Calculator</h2>
+    </div>
+    
+    <div class="w-50 mt-4 d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center align-items-center me-2 fondo-item btn-genre"
+            (click)="setGenre('M')"
+            [ngClass]="{'genre-active': genre==='M'}"
+            >
+            <i class="fa-solid fa-mars fs-1"></i>
+            <span>Masculino</span>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center ms-2 fondo-item btn-genre"
+        (click)="setGenre('F')"
+        [ngClass]="{'genre-active': genre==='F'}"
+        >
+            <i class="fa-solid fa-venus fs-1"></i>
+            <span>Femenino</span>
+        </div>
+    </div>
+
+    <div class="w-50 mt-4 d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center align-items-center fondo-item">
+            <label for="altura">
+                <p class="m-0">Altura</p>
+            </label>
+            <p class="m-0"><span class="fs-2 fw-bold">{{ altura }}</span>cm</p>
+            <input class="form-range" type="range" min="120" [value]="altura" max="220" (input)="changeAltura($event)" title="altura de la persona">
+        </div>
+    </div>
+
+    <div class="w-50 mt-4 d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center align-items-center me-2 fondo-item">
+            <p class="m-0 fs-4">Peso</p>
+            <p class="m-0 fs-4">{{ peso }}</p>
+            <div class="w-50 d-flex justify-content-between">
+                <i class="fs-4 btn btn-secondary fa-solid fa-minus btn-control" (click)="changePeso(-1)"></i>
+                <i class="fs-4 btn btn-secondary fa-solid fa-plus btn-control" (click)="changePeso(1)"></i>
+            </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center ms-2 fondo-item">
+            <p class="m-0 fs-4">Edad</p>
+            <p class="m-0 fs-4">{{ edad }}</p>
+            <div class="w-50 d-flex justify-content-between">
+                <i class="fs-4 btn btn-secondary fa-solid fa-minus btn-control" (click)="changeEdad(-1)"></i>
+                <i class="fs-4 btn btn-secondary fa-solid fa-plus btn-control" (click)="changeEdad(1)"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-50 mt-4 d-flex justify-content-center">
+        <button class="w-100 btn btn-danger btn-calcular" type="button"
+            (click)="calculateWeight()"
+            >
+            Calcular
+        </button>
+    </div>
+
+</div>
